@@ -11,7 +11,7 @@ Template taken from https://html5up.net.
 - Contact
 
 ## Live Demo
-https://anthnyko.github.io/Portfolio/
+https://anthnyko.github.io/portfolio-website
 
 ## Built With
 - HTML5
