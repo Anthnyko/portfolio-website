@@ -8,6 +8,8 @@ const sections = [...document.querySelectorAll("main section[id]")];
 const filterButtons = [...document.querySelectorAll(".filter-button")];
 const projectCards = [...document.querySelectorAll(".project-card")];
 const tiltCards = [...document.querySelectorAll(".tilt-card")];
+const timeline = document.querySelector("[data-timeline]");
+const timelineItems = [...document.querySelectorAll(".timeline-item")];
 
 function setHeaderState() {
 	header.classList.toggle("is-elevated", window.scrollY > 18);
@@ -59,6 +61,30 @@ const sectionObserver = new IntersectionObserver(
 );
 
 sections.forEach((section) => sectionObserver.observe(section));
+
+function updateTimelineProgress() {
+	if (!timeline) return;
+
+	const rect = timeline.getBoundingClientRect();
+	const viewportCenter = window.innerHeight * 0.55;
+	const progress = (viewportCenter - rect.top) / rect.height;
+	const clamped = Math.max(0, Math.min(progress, 1));
+	timeline.style.setProperty("--timeline-progress", `${clamped * 100}%`);
+}
+
+const timelineObserver = new IntersectionObserver(
+	(entries) => {
+		entries.forEach((entry) => {
+			entry.target.classList.toggle("is-active", entry.isIntersecting);
+		});
+	},
+	{ rootMargin: "-42% 0px -42% 0px", threshold: 0 }
+);
+
+timelineItems.forEach((item) => timelineObserver.observe(item));
+updateTimelineProgress();
+window.addEventListener("scroll", updateTimelineProgress, { passive: true });
+window.addEventListener("resize", updateTimelineProgress);
 
 filterButtons.forEach((button) => {
 	button.addEventListener("click", () => {

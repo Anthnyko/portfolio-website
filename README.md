@@ -17,6 +17,13 @@ This portfolio is built as a static website with no build step, making it easy t
 - Experience and education timeline
 - Contact form and social links
 
+## Featured Projects
+
+- [Dungeon Adventure](https://github.com/Anthnyko/dungeon-adventure): Java and SQLite turn-based RPG with extensible combat systems.
+- [GigFlow](https://github.com/ncortes04/Hackathon-2026): Full-stack hackathon MVP built with React, FastAPI, PostgreSQL, and Supabase.
+- [Apex Legends Global Stats Tracker](https://github.com/Anthnyko/apex-user-tracker): Python CLI for retrieving player statistics from a public API.
+- [Spreadsheet Engine and GUI](https://github.com/anthny-UW/group8-spreadsheet): Java spreadsheet logic and Swing GUI project.
+
 ## Project Structure
 
 ```text
